@@ -41,6 +41,19 @@ namespace oaibackend.Controllers
             return alumno;
         }
 
+        [HttpGet("{cuenta}/{clave}")]
+        public async Task<ActionResult<Alumno>> GetBitacoryByDate(string cuenta, string clave)
+        {
+            var bitacory = await _context.Alumno.SingleOrDefaultAsync(x => x.Cuenta == cuenta && x.Clave == clave);
+
+            if (bitacory == null)
+            {
+                return NotFound();
+            }
+
+            return bitacory;
+        }
+
         // PUT: api/Alumno/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.

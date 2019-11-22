@@ -46,6 +46,8 @@ namespace oaibackend.Models
         {
             modelBuilder.Entity<Alumno>(entity =>
             {
+                entity.Property(e => e.Clave).IsUnicode(false);
+
                 entity.Property(e => e.Cuenta)
                     .HasColumnName("cuenta")
                     .HasMaxLength(10)
@@ -74,6 +76,12 @@ namespace oaibackend.Models
 
             modelBuilder.Entity<Coordinador>(entity =>
             {
+                entity.Property(e => e.Clave).IsUnicode(false);
+
+                entity.Property(e => e.Cuenta)
+                    .HasMaxLength(10)
+                    .IsFixedLength();
+
                 entity.Property(e => e.Nombre)
                     .IsRequired()
                     .IsUnicode(false);

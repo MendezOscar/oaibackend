@@ -12,6 +12,8 @@ namespace oaibackend.Models
 
         public int CoordinadorId { get; set; }
         public string Nombre { get; set; }
+        public string Cuenta { get; set; }
+        public string Clave { get; set; }
 
         public virtual ICollection<Carrera> Carrera { get; set; }
     }

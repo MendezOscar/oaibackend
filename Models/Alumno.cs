@@ -13,6 +13,7 @@ namespace oaibackend.Models
         public int AlumnoId { get; set; }
         public string Nombre { get; set; }
         public string Cuenta { get; set; }
+        public string Clave { get; set; }
 
         public virtual ICollection<PlanAlumno> PlanAlumno { get; set; }
     }
