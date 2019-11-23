@@ -27,6 +27,19 @@ namespace oaibackend.Controllers
             return await _context.ConsultaMatriculaDetalle.ToListAsync();
         }
 
+        [HttpGet("{matricula}/{alumno}")]
+        public async Task<ActionResult<IEnumerable<ConsultaMatriculaDetalle>>> GetConsultaMatriculaDetalleByMatricula(int matricula, int alumno)
+        {
+             var bitacory = await _context.ConsultaMatriculaDetalle.Where(x => x.ConsultaMatriculaId == matricula && x.AlumnoId == alumno).ToListAsync();
+
+            if (bitacory == null)
+            {
+                return NotFound();
+            }
+
+            return bitacory;
+        }
+
         // GET: api/ConsultaMatriculadetalle/5
         [HttpGet("{id}")]
         public async Task<ActionResult<ConsultaMatriculaDetalle>> GetConsultaMatriculaDetalle(int id)

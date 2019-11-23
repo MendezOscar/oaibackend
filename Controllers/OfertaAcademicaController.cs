@@ -40,6 +40,19 @@ namespace oaibackend.Controllers
 
             return ofertaAcademica;
         }
+        
+        [HttpGet("{periodo}/{anio}")]
+        public async Task<ActionResult<OfertaAcademica>> GetOfertaAcademica(int periodo, int anio)
+        {
+            var bitacory = await _context.OfertaAcademica.SingleOrDefaultAsync(x => x.Periodo == periodo && x.Anio == anio);
+
+            if (bitacory == null)
+            {
+                return NotFound();
+            }
+
+            return bitacory;
+        }
 
         // PUT: api/OfertaAcademica/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for

@@ -10,5 +10,6 @@ namespace oaibackend.Models
         public int AlumnoId { get; set; }
         public int CursoId { get; set; }
         public int Dia { get; set; }
+        public string Hora { get; set; }
     }
 }

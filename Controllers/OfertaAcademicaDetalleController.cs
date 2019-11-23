@@ -27,6 +27,19 @@ namespace oaibackend.Controllers
             return await _context.OfertaAcademicaDetalle.ToListAsync();
         }
 
+        [HttpGet("get-by-oferta{oferta}")]
+        public async Task<ActionResult<IEnumerable<OfertaAcademicaDetalle>>> GetConsultaMatriculaDetalleByMatricula(int oferta)
+        {
+             var bitacory = await _context.OfertaAcademicaDetalle.Where(x => x.OfertaAcademicaId == oferta).ToListAsync();
+
+            if (bitacory == null)
+            {
+                return NotFound();
+            }
+
+            return bitacory;
+        }
+
         // GET: api/OfertaAcademicaDetalle/5
         [HttpGet("{id}")]
         public async Task<ActionResult<OfertaAcademicaDetalle>> GetOfertaAcademicaDetalle(int id)

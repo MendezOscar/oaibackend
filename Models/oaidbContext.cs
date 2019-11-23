@@ -74,6 +74,13 @@ namespace oaibackend.Models
                     .HasConstraintName("FK__Carrera__Coordin__25869641");
             });
 
+            modelBuilder.Entity<ConsultaMatriculaDetalle>(entity =>
+            {
+                entity.Property(e => e.Hora)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<Coordinador>(entity =>
             {
                 entity.Property(e => e.Clave).IsUnicode(false);
